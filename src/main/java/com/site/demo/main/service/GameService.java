@@ -6,6 +6,8 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class GameService {
@@ -13,5 +15,13 @@ public class GameService {
 
     public Game getById(Long id) {
         return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Game with id:" + id + " not found"));
+    }
+
+    public List<Game> getAll() {
+        return repository.findAll();
+    }
+
+    public void create(Game game) {
+        repository.save(game);
     }
 }

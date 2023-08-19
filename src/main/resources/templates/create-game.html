@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Game</title>
+    </head>
+    <body>
+        <div th:style="'text-align: center;'">
+            <form th:action="@{/game/create}" method="post" enctype="multipart/form-data">
+                <label for="name">Name:</label>
+                <input id="name" type="text" name="name" placeholder="My game">
+                <label for="desc">Description:</label>
+                <input id="desc" type="text" name="description" placeholder="The coolest game ever!!!">
+
+                <h2>Upload Image Example</h2>
+                <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+                <div class="form-group">
+                    <input type="file" name="image" accept="image/*" class="form-control-file">
+                </div>
+                <span th:if="${msg != null}" th:text="${msg}"></span>
+
+                <button type="submit">Create Game</button>
+            </form>
+        </div>
+    </body>
+</html>

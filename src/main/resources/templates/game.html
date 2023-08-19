@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Game</title>
-</head>
-<body>
-    <h1 th:text="${name}">Hello, World!</h1>
-    <p th:if="${description}"></p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Game</title>
+    </head>
+    <body>
+        <div th:style="'text-align: center;'">
+            <form th:action="@{/game/__${game.id}__/play}" method="get" enctype="multipart/form-data">
+                <h1 th:text="${game.name}"></h1>
+                <p th:text="${game.description}"></p>
+                <button type="submit">Play!</button>
+            </form>
+        </div>
+    </body>
 </html>
